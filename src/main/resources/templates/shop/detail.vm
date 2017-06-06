@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="spider-id" content="wicd2n">
+    <title>商家店铺数据</title>
+    <link rel="stylesheet" href="../../../css/list.css">
+</head>
+<body  data-spider="4jpwgf6e">
+    #include("/index/include.vm")
+    <section id="container">
+        #include("/index/master.vm")
+        
+        <section class="main-content">
+            <section class="wrapper">
+                <div>
+                    <section class="panel panel-danger">
+                        <header class="panel-heading">
+                            <h4 class="panel-title">
+                                店铺基本属性
+                            </h4>
+                        </header>
+                    </section>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <section class="panel clearfix">
+                                <ul class="list-group"> 
+                                    #foreach($data in $shopBasicData.entrySet())
+                                    <li class="list-group-item col-sm-3 clearfix">
+                                        <span class="pull-left" title="${data.key}" style="max-width: 45%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.key}</span>
+                                        #if((! $data.value || $data.value == '') && $data.key != "店铺微店地址")
+                                        <span class="label label-primary pull-right" style="max-width: 55%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">空</span>
+                                        #elseif( $data.key == "店铺微店地址")
+                                        <a class="label label-primary pull-right" spm-auto="店铺微店地址链接" spm-click="a"  href="https://weidian.com/?userid=$shopBasicData['卖家ID']" target="_blank" style="max-width: 65%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">点击跳转</a>
+                                        #else
+                                        <span class="label label-primary pull-right" title="" style="max-width: 65%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.value}</span>
+                                        #end
+                                    </li>
+                                    #end
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <section class="panel panel-info">
+                        <header class="panel-heading">
+                            <h4 class="panel-title">
+                                商品订单数据
+                            </h4>
+                        </header>
+                    </section>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <section class="panel clearfix">
+                                <ul class="list-group"> 
+                                    #foreach($data in $merchandiseOrderData.entrySet())
+                                    <li class="list-group-item col-sm-3 clearfix">
+                                        <span class="pull-left" title="${data.key}" style="max-width: 45%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.key}</span>
+                                        #if(! $data.value || $data.value == '')
+                                        <span class="label label-primary pull-right" title="${data.value}" style="max-width: 65%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">空</span>
+                                        #else
+                                        <span class="label label-primary pull-right" title="${data.value}" style="max-width: 65%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.value}</span>
+                                        #end
+                                    </li>
+                                    #end
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div>
+                    <section class="panel panel-success">
+                        <header class="panel-heading">
+                            <h4 class="panel-title">
+                                营销工具相关数据
+                            </h4>
+                        </header>
+                    </section>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <section class="panel clearfix">
+                                <ul class="list-group"> 
+                                    #foreach($data in $marketingToolData.entrySet())
+                                    <li class="list-group-item col-sm-3 clearfix">
+                                        <span class="pull-left" title="${data.key}" style="max-width: 55%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.key}</span>
+
+                                        #if(! $data.value || $data.value == '')
+                                        <span class="label label-primary pull-right" title="${data.value}" style="max-width: 45%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">空</span>
+                                        #else
+                                        <span class="label label-primary pull-right" title="${data.value}" style="max-width: 45%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.value}</span>
+                                        #end
+                                    </li>
+                                    #end
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <section class="panel panel-warning">
+                        <header class="panel-heading">
+                            <h4 class="panel-title">
+                               活跃行为数据 
+                            </h4>
+                        </header>
+                    </section>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <section class="panel clearfix">
+                                <ul class="list-group"> 
+                                    #foreach($data in $activeBehaviorData.entrySet())
+                                    <li class="list-group-item col-sm-3 clearfix">
+                                        <span class="pull-left" title="${data.key}" style="max-width: 58%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.key}</span>
+                                        #if(! $data.value || $data.value == '')
+                                        <span class="label label-primary pull-right" title="${data.value}" style="max-width: 42%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">空</span>
+                                        #else
+                                        <span class="label label-primary pull-right" title="${data.value}" style="max-width: 42%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.value}</span>
+                                        #end
+                                    </li>
+                                    #end
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <section class="panel panel-danger">
+                        <header class="panel-heading">
+                            <h4 class="panel-title">
+                                标签数据
+                            </h4>
+                        </header>
+                    </section>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <section class="panel clearfix">
+                                <ul class="list-group"> 
+                                    #foreach($data in $tagData.entrySet())
+                                    <li class="list-group-item col-sm-3 clearfix">
+                                        <span class="pull-left" title="${data.key}" style="max-width: 55%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.key}</span>
+                                        #if(! $data.value || $data.value == '')
+                                        <span class="label label-primary pull-right" title="${data.value}" style="max-width: 45%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">空</span>
+                                        #else
+                                        <span class="label label-primary pull-right" title="${data.value}" style="max-width: 45%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">${data.value}</span>
+                                        #end
+                                    </li>
+                                    #end
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+</body>
+</html>
